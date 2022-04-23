@@ -17,6 +17,12 @@ driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 action = ActionChains(driver)
 
 
+driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+url = 'https://news.naver.com/main/main.naver?mode=LSD&mid=shm&sid1=100'
+driver.get(url)
+driver.maximize_window 
+action = ActionChains(driver)
+
 
 while 1 :input("종료할려면 엔터")
 
