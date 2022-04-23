@@ -52,9 +52,10 @@ for item in  ul(len):
     url_list.append(text)    
 
 with open('naver_news_covid19.csv','w',encoding='utf-8-sig') as f:
-   writer = csv.writer(f)          
-   writer.writerow(['title','paragraphs']) for row in ul_list: 
-     writer.writerow(row)
+    writer = csv.writer(f)          
+    writer.writerow(['title','paragraphs']) 
+    for row in ul_list: 
+        writer.writerow(row)
 
 
 while 1 :input("종료할려면 엔터")
