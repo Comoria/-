@@ -24,6 +24,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.support.ui import WebDriverWait
 from bs4 import BeautifulSoup
+import csv
 
 
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
@@ -43,19 +44,16 @@ html = driver.page_source
 #가저온 코드로 bs4로 파싱하기
 soup = BeautifulSoup(html, 'html.parser') 
 
-xxxx = ul선택
 
-url_list = []
+articles = soup.select('#right_dailyList > div')
 
-for item in  ul(len):
-    text= xpath~~ ul[item]
-    url_list.append(text)    
+print(len(articles))
 
-with open('naver_news_covid19.csv','w',encoding='utf-8-sig') as f:
-    writer = csv.writer(f)          
-    writer.writerow(['title','paragraphs']) 
-    for row in ul_list: 
-        writer.writerow(row)
+for article in articles:
+    a_tag = article.select_one('ul >li > a')
+    title = a_tag.text
+    print(title)
+
 
 
 while 1 :input("종료할려면 엔터")
